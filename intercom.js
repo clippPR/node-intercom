@@ -118,6 +118,58 @@ exports.app = function(config) {
           }
         });
       }
+    },
+    tags: {
+      get: function(tag, cb) {
+        
+        var args = {
+          "method": "GET",
+          "url": "https://api.intercom.io/v1/tags/?name=" + name,
+          "headers": { "Authorization": sign() } 
+        }
+
+        return request(args, function(e, r, body) {
+          if (e) {
+            cb(null, null, null);
+          } else {
+            cb(r.statusCode, body);
+          }
+        });
+      },
+
+      post: function(data, cb) {
+        var args = {
+          "method": "POST",
+          "url": "https://api.intercom.io/v1/tags/",
+          "headers": { "Authorization": sign() },
+          "body": JSON.stringify(data)
+        }
+
+        return request(args, function(e, r, body) {
+          if (e) {
+            cb(null, null, null);
+          } else {
+            cb(r.statusCode, body);
+          }
+        });
+      },
+
+      put: function(data, cb) {
+        var args = {
+          "method": "PUT",
+          "url": "https://api.intercom.io/v1/tags/",
+          "headers": { "Authorization": sign() },
+          "body": JSON.stringify(data)
+        }
+
+        return request(args, function(e, r, body) {
+          if (e) {
+            cb(null, null, null);
+          } else {
+            cb(r.statusCode, body);
+          }
+        });
+      },
     }
   }
 }
