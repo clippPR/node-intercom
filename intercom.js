@@ -169,7 +169,7 @@ exports.app = function(config) {
             cb(r.statusCode, body);
           }
         });
-      },
+      }
     }
   }
 }
