@@ -51,7 +51,8 @@ exports.app = function(config) {
       get: function(user_id_or_email, cb) {
         
         var key = (user_id_or_email.indexOf("@") == -1) ? "user_id" : "email";
-
+        user_id_or_email = encodeURIComponent(user_id_or_email);
+        
         var args = {
           "method": "GET",
           "url": "https://api.intercom.io/v1/users/?"+ key + "=" + user_id_or_email,
