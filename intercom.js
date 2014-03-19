@@ -125,7 +125,7 @@ exports.app = function(config) {
         
         var args = {
           "method": "GET",
-          "url": "https://api.intercom.io/v1/tags/?name=" + name,
+          "url": "https://api.intercom.io/v1/tags/?name=" + tag,
           "headers": { "Authorization": sign() } 
         }
 
