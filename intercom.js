@@ -103,13 +103,13 @@ exports.app = function(config) {
       },
 
       delete: function(data, cb) {
-        var params = qs.stringify(data);
-
+        
         var args = {
           "method": "DELETE",
-          "url": "https://api.intercom.io/v1/users/?" + params,
+          "url": "https://api.intercom.io/v1/users",
+          "json": data,
           "headers": { "Authorization": sign() }
-        }
+        };
 
         return request(args, function(e, r, body) {
           if (e) {
